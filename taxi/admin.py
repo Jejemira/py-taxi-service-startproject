@@ -5,7 +5,7 @@ from taxi.models import Manufacturer, Driver, Car
 
 
 @admin.register(Driver)
-class DrivarAdmin(UserAdmin):
+class DriverAdmin(UserAdmin):
     list_display = UserAdmin.list_display + ('license_number',)
     fieldsets = UserAdmin.fieldsets + (
         (
@@ -29,7 +29,7 @@ class DrivarAdmin(UserAdmin):
 
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
-    search_fields = ['model', 'manufacturer', ]
+    search_fields = ['model', 'manufacturer__name', ]
 
 
 admin.site.register(Manufacturer)
